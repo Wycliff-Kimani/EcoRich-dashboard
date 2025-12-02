@@ -41,43 +41,8 @@
         <!-- ===== Main Content Start ===== -->
 
         <div class="align-text-bottom">
-          <h1 class="">
-            This is the waste suppliers page. <br />
-            All our suppliers will be listed here
-          </h1>
+          <h1 class="">This is the farmers page. <br /></h1>
         </div>
-
-        <script src="/src\js\suppliers-data.js"></script>
-        <script>
-          // Populate table when page loads
-          window.onload = function () {
-            displaySuppliers(suppliersData);
-          };
-
-          function displaySuppliers(suppliers) {
-            const tbody = document.getElementById("suppliersTableBody");
-            tbody.innerHTML = "";
-
-            suppliers.forEach((supplier) => {
-              const row = `
-        <tr>
-          <td><i class="icon-user"></i></td>
-          <td>${supplier.name}</td>
-          <td>${supplier.phone}</td>
-          <td>${supplier.email}</td>
-          <td>${supplier.location}</td>
-          <td><span class="tag">${supplier.wasteType}</span></td>
-          <td><span class="badge ${supplier.status.toLowerCase()}">${supplier.status}</span></td>
-          <td>
-            <button class="btn-icon" onclick="viewSupplier(${supplier.id})">👁️</button>
-            <button class="btn-icon" onclick="editSupplier(${supplier.id})">✏️</button>
-          </td>
-        </tr>
-      `;
-              tbody.innerHTML += row;
-            });
-          }
-        </script>
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
