@@ -41,43 +41,48 @@
         <!-- ===== Main Content Start ===== -->
 
         <div class="align-text-bottom">
-          <h1 class="">
-            This is the waste suppliers page. <br />
-            All our suppliers will be listed here
-          </h1>
+          <h1 class="text-2xl font-bold mb-4">Our Suppliers</h1>
         </div>
 
-        <script src="/src\js\suppliers-data.js"></script>
-        <script>
-          // Populate table when page loads
-          window.onload = function () {
-            displaySuppliers(suppliersData);
-          };
+        <div
+          id="suppliersContainer"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6"
+        >
+          <script src="/src/js/suppliers-data.js"></script>
 
-          function displaySuppliers(suppliers) {
-            const tbody = document.getElementById("suppliersTableBody");
-            tbody.innerHTML = "";
+          <script>
+            const container = document.getElementById("suppliersContainer");
 
             suppliers.forEach((supplier) => {
-              const row = `
-        <tr>
-          <td><i class="icon-user"></i></td>
-          <td>${supplier.name}</td>
-          <td>${supplier.phone}</td>
-          <td>${supplier.email}</td>
-          <td>${supplier.location}</td>
-          <td><span class="tag">${supplier.wasteType}</span></td>
-          <td><span class="badge ${supplier.status.toLowerCase()}">${supplier.status}</span></td>
-          <td>
-            <button class="btn-icon" onclick="viewSupplier(${supplier.id})">👁️</button>
-            <button class="btn-icon" onclick="editSupplier(${supplier.id})">✏️</button>
-          </td>
-        </tr>
-      `;
-              tbody.innerHTML += row;
+              const card = document.createElement("div");
+              card.className =
+                "bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md hover:shadow-lg transition";
+
+              card.innerHTML = `
+      <div class="flex items-center gap-4">
+        <img src="${supplier.image}" class="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <h2 class="text-lg font-bold">${supplier.name}</h2>
+          <p class="text-sm">${supplier.location}</p>
+          <p class="text-sm">${supplier.phone}</p>
+        </div>
+      </div>
+
+      <div class="mt-4 text-sm">
+        <p><strong>Status:</strong> 
+          <span class="${supplier.status === "active" ? "text-green-600" : "text-red-600"}">
+            ${supplier.status}
+          </span>
+        </p>
+        <p><strong>Reliability:</strong> ${"⭐".repeat(supplier.reliability)}</p>
+      </div>
+    `;
+
+              container.appendChild(card);
             });
-          }
-        </script>
+          </script>
+        </div>
+
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
