@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calendar | EcoRich Admin Dashboard Template</title>
+    <title>Farmers | EcoRich Admin Dashboard Template</title>
   </head>
   <body
     x-data="{ page: 'calendar', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -40,13 +40,66 @@
 
         <!-- ===== Main Content Start ===== -->
 
-        <div class="align-text-bottom">
-          <h1 class="">This is the farmers page. <br /></h1>
-        </div>
+        <!-- FARMERS SUMMARY -->
+        <section>
+          <h2 class="text-xl font-semibold mb-4">Partner Farmers</h2>
+          <div
+            id="farmers-summary-container"
+            class="grid grid-cols-1 md:grid-cols-3 gap-4"
+          >
+            <!-- JS will insert summary cards here -->
+          </div>
+        </section>
+
+        <!-- FARMERS LIST -->
+        <section>
+          <br />
+          <input
+            type="text"
+            id="farmers-search"
+            placeholder="Search farmers..."
+            class="mb-4 p-2 border rounded w-full md:w-1/3 bg-white"
+          />
+          <div class="overflow-x-auto">
+            <table
+              id="farmers-table"
+              class="min-w-full bg-white dark:bg-gray-800 rounded-xl shadow-md"
+            >
+              <thead class="bg-gray-100 dark:bg-gray-700">
+                <tr>
+                  <th class="p-3 text-left">Name</th>
+                  <th class="p-3 text-left">Location</th>
+                  <th class="p-3 text-left">Last Order</th>
+                  <th class="p-3 text-left">Status</th>
+                  <th class="p-3 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="farmers-table-body">
+                <!-- JS will insert rows here -->
+              </tbody>
+            </table>
+            <div
+              id="pagination-container"
+              class="flex justify-center mt-4 space-x-2"
+            ></div>
+          </div>
+        </section>
+        <br />
+
+        <!-- ACTIVE ORDERS OR ALERTS -->
+        <section class="container">
+          <h2 class="text-xl font-semibold mb-1">Active Orders</h2>
+          <br />
+          <div id="active-orders-container" class="space-y-2">
+            <!-- JS will insert order cards here -->
+          </div>
+        </section>
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
+    <script src="/src/js/farmers-js/farmers-data.js"></script>
+    <script src="/src/js/farmers-js/render-farmers.js"></script>
   </body>
 </html>
