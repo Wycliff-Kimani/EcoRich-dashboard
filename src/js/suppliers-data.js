@@ -51,7 +51,7 @@ const suppliers = [
     phone: "0112962132",
     location: "Ruai",
     reliability: 2,
-    status: "inactive",
+    status: "active",
     image: "/src/images/Ecorich_logo.png",
   },
   {

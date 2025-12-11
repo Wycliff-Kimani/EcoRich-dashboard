@@ -1,5 +1,5 @@
 // This is a simple array of supplier objects
-const suppliers = [
+const supplier = [
   {
     id: 1,
     name: "Joseph Kamau",

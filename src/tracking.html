@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calendar | EcoRich Admin Dashboard Template</title>
+    <title>Production Tracking | EcoRich Admin Dashboard Template</title>
   </head>
   <body
     x-data="{ page: 'calendar', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -39,14 +39,50 @@
         <!-- ===== Header End ===== -->
 
         <!-- ===== Main Content Start ===== -->
+        <div class="p-6 space-y-8">
+          <!-- MACHINE STATUS -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Machine Status</h2>
 
-        <div class="align-text-bottom">
-          <h1 class="">This is the tracking page. <br /></h1>
+            <div
+              id="machine-status-container"
+              class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+              <!-- Cards will be inserted here by JS -->
+            </div>
+          </section>
+
+          <!-- WASTE COLLECTION -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Waste Collection</h2>
+
+            <div
+              id="waste-collection-container"
+              class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow"
+            >
+              <!-- JS will insert the waste collection summary here -->
+            </div>
+          </section>
+
+          <!-- DELIVERY TRACKING -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Delivery Tracking</h2>
+
+            <div id="delivery-tracking-container" class="space-y-4">
+              <!-- JS-generated delivery cards will appear here -->
+            </div>
+          </section>
         </div>
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
+    <script src="/src/js/tracking-js/machine-status.js"></script>
+    <script src="/src/js/tracking-js/waste-collection.js"></script>
+    <script src="/src/js/tracking-js/delivery-tracking.js"></script>
+    <script src="/src/js/tracking-js/alerts.js"></script>
+
+    <script src="/src/js/tracking-js/render-tracking.js "></script>
   </body>
 </html>
