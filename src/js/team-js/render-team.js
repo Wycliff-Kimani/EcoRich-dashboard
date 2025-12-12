@@ -13,7 +13,7 @@ function renderTeamCards() {
         </div>
       </div>
       <p class="mt-4 text-sm text-gray-700 dark:text-gray-300">${member.description}</p>
-      <button><a href="${member.profile}" class="mt-2 inline-block text-blue-500 hover:underline">View Profile</a></button>
+      <a href="${member.profile}" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium" aria-label="View profile of ${member.name}">View Profile</a>
     `;
     container.appendChild(card);
   });

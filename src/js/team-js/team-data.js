@@ -29,16 +29,15 @@ const teamMembers = [
     role: "Inventory Specialist",
     description:
       "Manages partnerships, deliveries to farmers, Handles stock tracking and supply chain logistics.",
-    image: "/src/images/pato.jpg",
+    image: "/src/images/Ecorich_logo.png",
     profile: "#", //robin-karanja.html
   },
-  // Add 20-30 mocks here to fill the grid (e.g., duplicates with variations or generated names/roles)
   {
     id: 5,
     name: "Audrine Mohammed",
     role: "Sustainability Analyst",
     description: "Tracks environmental impact and reports.",
-    image: "/src/images/tasha.jpg",
+    image: "/src/images/Ecorich_logo.png",
     profile: "audrine.html",
   },
   {
@@ -46,8 +45,16 @@ const teamMembers = [
     name: "Gideon Kamau",
     role: "Site Operations Manager",
     description: "Manages all site operations and activies .",
-    image: "/src/images/tasha.jpg",
-    profile: "audrine.html",
+    image: "/src/images/Ecorich_logo.png",
+    profile: "gideon.html",
+  },
+  {
+    id: 7,
+    name: "Wycliff Kimani",
+    role: "Software Engineer",
+    description: "Design, develop, test, and maintain software solutions.",
+    image: "/src/images/Ecorich_logo.png",
+    profile: "wycliff.html",
   },
 ];
 
