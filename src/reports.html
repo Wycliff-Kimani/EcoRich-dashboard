@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calendar | EcoRich Admin Dashboard Template</title>
+    <title>Reports | EcoRich Admin Dashboard Template</title>
   </head>
   <body
     x-data="{ page: 'calendar', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -40,13 +40,30 @@
 
         <!-- ===== Main Content Start ===== -->
 
-        <div class="align-text-bottom">
-          <h1 class="">This is the reports page. <br /></h1>
+        <!-- Reports Header -->
+        <div class="flex items-center justify-between mb-6">
+          <h1 class="text-2xl font-semibold text-gray-900">Reports</h1>
+          <button
+            class="rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+          >
+            + Upload Document
+          </button>
+        </div>
+
+        <!-- Reports Cards -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9"
+          id="reports-cards-container"
+        >
+          <!-- JS will insert cards -->
         </div>
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
+    <script src="/src/js/reports-js/reports-data.js"></script>
+    <script src="/src/js/reports-js/render-reports.js"></script>
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
   </body>
 </html>
