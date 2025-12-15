@@ -40,13 +40,41 @@
 
         <!-- ===== Main Content Start ===== -->
 
-        <div class="align-text-bottom">
-          <h1 class="">This is the trainings page. <br /></h1>
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h1 class="text-2xl font-semibold text-gray-900">Trainings</h1>
+            <p class="text-lg text-gray-500">
+              Manage farmer and staff training programs
+            </p>
+          </div>
+          <a
+            href="create-training.html"
+            class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+            >+ Create Training</a
+          >
+        </div>
+
+        <!-- Summary Cards -->
+        <div
+          class="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2 lg:grid-cols-4"
+          id="trainings-summary-container"
+        >
+          <!-- JS will insert cards -->
+        </div>
+
+        <!-- Trainings Cards -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="trainings-cards-container"
+        >
+          <!-- JS will insert cards -->
         </div>
         <!-- ===== Main Content End ===== -->
       </div>
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
+    <script src="/src/js/trainings-js/trainings-data.js"></script>
+    <script src="/src/js/trainings-js/render-trainings.js"></script>
   </body>
 </html>

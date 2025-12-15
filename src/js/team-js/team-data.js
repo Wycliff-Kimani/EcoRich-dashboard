@@ -10,7 +10,7 @@ const teamMembers = [
   {
     id: 2,
     name: "Robinson Irekwa",
-    role: "Lead Research & Development",
+    role: "Co-Founder, Lead Research & Development",
     description: "Oversees Reseach, development and waste-bot operations.",
     image: "/src/images/Robby.jpg",
     profile: "robby.html",
@@ -30,7 +30,7 @@ const teamMembers = [
     description:
       "Manages partnerships, deliveries to farmers, Handles stock tracking and supply chain logistics.",
     image: "/src/images/Ecorich_logo.png",
-    profile: "#", //robin-karanja.html
+    profile: "robin-karanja.html",
   },
   {
     id: 5,
