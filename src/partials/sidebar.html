@@ -57,8 +57,10 @@
           <li>
             <a
               href="index.html"
-              @click="selected = 'Dashboard'"
+              @click="selected = 'Dashboard'; sidebarToggle = false"
               class="group relative flex items-center gap-3 px-6 py-2 font-medium text-gray-700 duration-300 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+              :class="selected === 'Dashboard' ? 'menu-item-active' : 'menu-item-inactive'"
+              aria-label="Dashboard page"
             >
               <span class="icon">
                 <svg
@@ -71,6 +73,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  aria-hidden="true"
                 >
                   <rect width="7" height="9" x="3" y="3" rx="1" />
                   <rect width="7" height="5" x="14" y="3" rx="1" />
@@ -78,7 +81,9 @@
                   <rect width="7" height="5" x="3" y="16" rx="1" />
                 </svg>
               </span>
-              Dashboard
+              <span :class="sidebarToggle ? '' : 'hidden lg:inline'"
+                >Dashboard</span
+              >
             </a>
           </li>
 
@@ -86,9 +91,10 @@
           <li>
             <a
               href="./waste-suppliers.html"
-              @click="selected = 'Suppliers'"
+              @click="selected = 'Suppliers'; sidebarToggle = false"
               class="group relative flex items-center gap-3 px-6 py-2 font-medium text-gray-700 duration-300 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
               :class="selected === 'Suppliers' ? 'menu-item-active' : 'menu-item-inactive'"
+              aria-label="Waste Suppliers page"
             >
               <span class="icon">
                 <svg
@@ -101,6 +107,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  aria-hidden="true"
                 >
                   <path
                     d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
@@ -113,7 +120,7 @@
                   <circle cx="7" cy="18" r="2" />
                 </svg>
               </span>
-              <span :class="sidebarToggle ? 'lg:hidden' : ''"
+              <span :class="sidebarToggle ? '' : 'lg:hidden'"
                 >Waste Suppliers</span
               >
             </a>
@@ -307,8 +314,8 @@
             </a>
           </li>
 
-          <!-- Calendar -->
-          <li>
+          <!-- Socials -->
+          <!-- <li>
             <a
               href="socials.html"
               @click="selected = 'Calendar'"
@@ -331,7 +338,7 @@
               </span>
               <span :class="sidebarToggle ? 'lg:hidden' : ''">Socials</span>
             </a>
-          </li>
+          </li> -->
 
           <!-- User Profile -->
           <li>
