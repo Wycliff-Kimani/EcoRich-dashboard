@@ -15,6 +15,9 @@ import map01 from "./components/map-01";
 import "./components/calendar-init.js";
 import "./components/image-resize";
 
+import "/src/js/auth/signin-form.js";
+import "/src/js/auth/signup-form.js";
+
 Alpine.plugin(persist);
 window.Alpine = Alpine;
 Alpine.start();
