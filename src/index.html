@@ -350,5 +350,9 @@
     <!-- ===== Page Wrapper End ===== -->
 
     <script type="module" src="/src/js/auth/signin-form.js"></script>
+    <script type="module">
+      import { redirectIfAuthenticated } from "./js/auth/guard.js";
+      redirectIfAuthenticated();
+    </script>
   </body>
 </html>
