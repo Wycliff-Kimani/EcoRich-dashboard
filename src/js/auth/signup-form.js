@@ -1,5 +1,5 @@
 import Alpine from "alpinejs";
-import { signUp, validatePasswordStrength } from "../auth/auth.js"; // Adjust path if needed
+// import { signUp, validatePasswordStrength } from "../auth/auth.js"; // Adjust path if needed
 import {
   displayFormErrors,
   clearFieldErrors,
@@ -21,28 +21,10 @@ document.addEventListener("alpine:init", () => {
     errors: [],
 
     async handleSubmit() {
-      this.isLoading = true;
-      clearFieldErrors(document.getElementById("signupForm"));
-      this.errors = [];
-
-      try {
-        const result = await signUp(this.form);
-
-        if (result.success) {
-          showToast("Account created successfully! Redirecting...", "success");
-          setTimeout(() => {
-            window.location.href = "/index.html";
-          }, 2000);
-        } else {
-          this.errors = result.errors;
-          displayFormErrors(this.errors, document.getElementById("signupForm"));
-        }
-      } catch (error) {
-        this.errors = [error.message];
-        displayFormErrors(this.errors, document.getElementById("signupForm"));
-      } finally {
-        this.isLoading = false;
-      }
+      showToast(
+        "Account creation is disabled. Please contact the administrator.",
+        "error"
+      );
     },
 
     validateField(fieldName) {
@@ -67,14 +49,11 @@ document.addEventListener("alpine:init", () => {
           }
           break;
         case "password":
-          const validation = validatePasswordStrength(this.form.password);
           if (!this.form.password) {
             error = "Password is required";
-          } else if (!validation.isValid) {
-            error =
-              "Password must contain at least 8 chars, uppercase, lowercase, number, and special character";
           }
           break;
+
         case "passwordConfirm":
           if (
             !this.form.passwordConfirm ||
