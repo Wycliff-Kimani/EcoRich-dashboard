@@ -22,7 +22,7 @@ const PROTECTED_ROUTES = [
 
 // List of public routes (accessible without authentication)
 const PUBLIC_ROUTES = [
-  "/signin.html",
+  "/index.html",
   "/signup.html",
   "/reset-password.html",
   "/404.html",
@@ -53,16 +53,16 @@ function protectRoute() {
 
   // If on a protected route and not logged in, redirect to signin
   if (isProtectedRoute(pathname) && !isLoggedIn()) {
-    window.location.href = "/signin.html";
+    window.location.href = "/index.html";
     return;
   }
 
   // If on a public auth route (signin/signup) and already logged in, redirect to dashboard
   if (
-    (pathname.includes("/signin.html") || pathname.includes("/signup.html")) &&
+    (pathname.includes("/index.html") || pathname.includes("/signup.html")) &&
     isLoggedIn()
   ) {
-    window.location.href = "/index.html";
+    window.location.href = "/dashboard.html";
     return;
   }
 }

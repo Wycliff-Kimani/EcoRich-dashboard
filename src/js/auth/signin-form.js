@@ -22,7 +22,7 @@ document.addEventListener("alpine:init", () => {
         if (result.success) {
           showToast("Welcome back! " + result.user.fname, "success");
           setTimeout(() => {
-            window.location.href = "/index.html";
+            window.location.href = "/dashboard.html";
           }, 1500);
         } else {
           this.errors = result.errors;

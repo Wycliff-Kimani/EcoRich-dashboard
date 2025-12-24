@@ -59,7 +59,7 @@ function setupLogoutButton() {
       showToast("You have been logged out", "info");
 
       setTimeout(() => {
-        window.location.href = "/signin.html";
+        window.location.href = "/index.html";
       }, 1500);
     });
   }
@@ -92,7 +92,7 @@ async function loadUserDashboard() {
 
   if (!user) {
     // User not authenticated
-    window.location.href = "/signin.html";
+    window.location.href = "/index.html";
     return;
   }
 
@@ -123,7 +123,7 @@ async function apiCall(endpoint, method = "GET", data = null) {
 
   if (!user) {
     showToast("You must be logged in", "error");
-    window.location.href = "/signin.html";
+    window.location.href = "/index.html";
     return null;
   }
 
@@ -145,7 +145,7 @@ async function apiCall(endpoint, method = "GET", data = null) {
     if (response.status === 401) {
       // Token expired, logout user
       signOut();
-      window.location.href = "/signin.html";
+      window.location.href = "/index.html";
       return null;
     }
 
@@ -232,7 +232,7 @@ function resetSessionTimer() {
     if (isLoggedIn()) {
       signOut();
       showToast("Your session has expired. Please log in again.", "warning");
-      window.location.href = "/signin.html";
+      window.location.href = "/index.html";
     }
   }, SESSION_TIMEOUT);
 }
