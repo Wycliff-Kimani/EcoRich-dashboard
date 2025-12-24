@@ -1,3 +1,5 @@
+import { protectPage } from "./auth/guard";
+protectPage();
 import "jsvectormap/dist/jsvectormap.min.css";
 import "flatpickr/dist/flatpickr.min.css";
 import "dropzone/dist/dropzone.css";
