@@ -4,16 +4,20 @@
 >
   <!-- SIDEBAR HEADER -->
   <div
-    :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-    class="sidebar-header flex items-center gap-2 pt-8 pb-7"
+    class="sidebar-header flex items-center justify-between gap-3 border-b border-gray-200 pt-6 pb-5 dark:border-gray-700"
   >
     <a href="/dashboard.html" class="flex items-center gap-2">
-      <span
-        class="text-lg font-bold text-gray-800 dark:text-white"
-        :class="sidebarToggle ? 'hidden' : ''"
+      <!-- EcoRich Icon/Badge -->
+      <div
+        class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600"
       >
-        EcoRich Solutions
-      </span>
+        <span class="text-lg font-bold text-white">E</span>
+      </div>
+      <!-- Brand Text -->
+      <div :class="sidebarToggle ? 'hidden' : ''">
+        <h2 class="text-sm font-bold text-gray-900 dark:text-white">EcoRich</h2>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Solutions</p>
+      </div>
     </a>
   </div>
   <!-- SIDEBAR HEADER -->
