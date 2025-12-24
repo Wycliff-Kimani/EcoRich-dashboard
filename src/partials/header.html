@@ -764,3 +764,19 @@
     </div>
   </div>
 </header>
+
+<script type="module">
+  // Ensure pages that include this header enforce authentication
+  try {
+    import("/src/js/auth/guard.js")
+      .then(({ protectPage }) => {
+        // Redirect unauthenticated users to sign-in
+        protectPage("/index.html");
+      })
+      .catch(() => {
+        // fail silently if module not available in build environment
+      });
+  } catch (e) {
+    // older browsers: no-op
+  }
+</script>
