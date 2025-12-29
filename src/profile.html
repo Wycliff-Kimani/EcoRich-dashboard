@@ -48,7 +48,7 @@
             <!-- Breadcrumb End -->
 
             <div
-              class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]"
+              class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/3"
             >
               <h3
                 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90"
@@ -72,22 +72,20 @@
                     </div>
                     <div class="order-3 xl:order-2">
                       <h4
-                        class="mb-2 text-center text-lg font-semibold text-gray-800 xl:text-left dark:text-white/90"
-                      >
-                        Joyce Rugano
-                      </h4>
+                        class="mb-2 text-center text-lg font-semibold text-gray-800 xl:text-left dark:text-white/90 profile-name"
+                      ></h4>
                       <div
                         class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left"
                       >
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          CEO and Co-Founder
-                        </p>
+                        <p
+                          class="text-sm text-gray-500 dark:text-gray-400 profile-bio"
+                        ></p>
                         <div
                           class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"
                         ></div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Kahawa SUkari, Kenya
-                        </p>
+                        <p
+                          class="text-sm text-gray-500 dark:text-gray-400 profile-location"
+                        ></p>
                       </div>
                     </div>
                     <div
@@ -214,10 +212,8 @@
                           First Name
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          Joyce
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 first-name"
+                        ></p>
                       </div>
 
                       <div>
@@ -227,10 +223,8 @@
                           Last Name
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          Rugano
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 last-name"
+                        ></p>
                       </div>
 
                       <div>
@@ -240,10 +234,8 @@
                           Email address
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          ceo@ecorich.co.ke
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 email"
+                        ></p>
                       </div>
 
                       <div>
@@ -253,10 +245,8 @@
                           Phone
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          +254 707 695671
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 phone"
+                        ></p>
                       </div>
 
                       <div>
@@ -266,10 +256,8 @@
                           Bio
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          CEO and C0-Founder
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 bio-detail"
+                        ></p>
                       </div>
                     </div>
                   </div>
@@ -320,10 +308,8 @@
                           Country
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          Kenya
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 country"
+                        ></p>
                       </div>
 
                       <div>
@@ -333,10 +319,8 @@
                           City
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          Kahawa Sukari
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 city"
+                        ></p>
                       </div>
 
                       <div>
@@ -346,10 +330,8 @@
                           Postal Code
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          00230
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 postal-code"
+                        ></p>
                       </div>
 
                       <div>
@@ -359,10 +341,8 @@
                           Company ID
                         </p>
                         <p
-                          class="text-sm font-medium text-gray-800 dark:text-white/90"
-                        >
-                          Admin
-                        </p>
+                          class="text-sm font-medium text-gray-800 dark:text-white/90 company-id"
+                        ></p>
                       </div>
                     </div>
                   </div>
@@ -400,6 +380,24 @@
     <!-- ===== Page Wrapper End ===== -->
 
     <!-- BEGIN MODAL -->
+    <script type="module" src="/src/js/profile.js"></script>
+    <script>
+      // Safe placeholders: if real handlers didn't register, prevent runtime ReferenceErrors
+      if (!window.savePersonalInfo) {
+        window.savePersonalInfo = async function () {
+          console.warn(
+            "savePersonalInfo placeholder called — real handler not loaded"
+          );
+        };
+      }
+      if (!window.saveAddress) {
+        window.saveAddress = async function () {
+          console.warn(
+            "saveAddress placeholder called — real handler not loaded"
+          );
+        };
+      }
+    </script>
     <include src="./partials/profile/profile-info-modal.html" />
     <include src="./partials/profile/profile-address-modal.html" />
     <!-- END MODAL -->
