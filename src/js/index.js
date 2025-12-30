@@ -1,3 +1,14 @@
+// Load profile module only on the profile page to avoid running profile code on every page
+if (typeof window !== "undefined") {
+  const pathname = window.location.pathname || "";
+  if (pathname.endsWith("/profile.html") || pathname.endsWith("/profile")) {
+    import("./profile.js");
+  }
+}
+import { protectPage } from "./auth/guard";
+
+protectPage();
+
 import "jsvectormap/dist/jsvectormap.min.css";
 import "flatpickr/dist/flatpickr.min.css";
 import "dropzone/dist/dropzone.css";

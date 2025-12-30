@@ -8,10 +8,7 @@
       content="Track waste processing, fertilizer production, farmer training, and impacts at Ecorich Solutions."
     />
     <link rel="icon" href="/src\images\Ecorich_logo.png" />
-    <script type="module">
-      import { protectPage } from './js/auth/guard.js';
-      protectPage('/index.html');
-    </script>
+    
   </head>
   <body
     x-data="{ page: 'dashboard', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -91,10 +88,6 @@
     </div>
     <!-- ===== Page Wrapper End ===== -->
      
-    
-    <script type="module">
-  import { protectPage } from "./js/auth/guard.js";
-  protectPage("/index.html");
-</script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>

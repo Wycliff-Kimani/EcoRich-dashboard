@@ -7,7 +7,7 @@
   ></div>
   <div
     @click.outside="isProfileAddressModal = false"
-    class="no-scrollbar relative flex w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 lg:p-11 dark:bg-gray-900"
+    class="no-scrollbar relative flex w-full max-w-175 flex-col overflow-y-auto rounded-3xl bg-white p-6 lg:p-11 dark:bg-gray-900"
   >
     <!-- close btn -->
     <button
@@ -103,7 +103,7 @@
         <button
           @click="isProfileAddressModal = false"
           type="button"
-          class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]"
+          class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/3"
         >
           Close
         </button>
@@ -116,36 +116,6 @@
         </button>
       </div>
     </form>
-    <!-- Add this script for save logic -->
-    <script type="module">
-      import { auth, db } from "../../firebase.js"; // Adjust path
-      import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-
-      window.saveAddress = async () => {
-        const user = auth.currentUser;
-        if (user) {
-          try {
-            await setDoc(
-              doc(db, "users", user.uid),
-              {
-                country: document.getElementById("countryInput").value,
-                city: document.getElementById("cityInput").value,
-                postalCode: document.getElementById("postalCodeInput").value,
-                companyId: document.getElementById("companyIdInput").value,
-                updatedAt: serverTimestamp(),
-              },
-              { merge: true }
-            );
-            console.log("Address saved");
-            location.reload();
-          } catch (error) {
-            console.error("Save error:", error);
-            alert("Error saving: " + error.message);
-          }
-        } else {
-          alert("Not logged in");
-        }
-      };
-    </script>
+    <!-- Save logic handled in src/js/profile.js; removed duplicate inline script -->
   </div>
 </div>

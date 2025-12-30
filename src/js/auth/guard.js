@@ -5,7 +5,7 @@ import { auth } from "../firebase";
  * Protect private pages (dashboard, settings, etc)
  * Redirects OUT if user is NOT logged in
  */
-export function protectPage(redirectTo = "/signin.html") {
+export function protectPage(redirectTo = "/index.html") {
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       window.location.replace(redirectTo);

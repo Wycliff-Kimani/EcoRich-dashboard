@@ -1,11 +1,17 @@
-import { auth, db } from "./firebase.js"; // Adjust path if needed
+import { auth, db } from "./firebase.js";
 console.log("profile.js loaded");
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 
+// Safe DOM helper — avoids exceptions when this module is loaded on non-profile pages
+function setText(selector, text) {
+  const el = document.querySelector(selector);
+  if (el) el.textContent = text;
+}
+
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = "/index.html"; // Or "/signin.html" if that's your login page
+    window.location.href = "/index.html";
     return;
   }
 
@@ -23,8 +29,8 @@ onAuthStateChanged(auth, async (user) => {
       country: "",
       city: "",
       postalCode: "",
-      companyId: "", // e.g., "Admin" or role
-      email: user.email, // Auto from auth
+      companyId: "",
+      email: user.email,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
@@ -35,27 +41,28 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   // Update UI elements (add these classes to your HTML)
-  document.querySelector(".profile-name").textContent =
-    `${data.firstName || "Not set"} ${data.lastName || ""}`;
-  document.querySelector(".profile-bio").textContent = data.bio || "Not set";
-  document.querySelector(".profile-location").textContent =
-    `${data.city || "Not set"}, ${data.country || "Not set"}`;
+  setText(
+    ".profile-name",
+    `${data.firstName || "Not set"} ${data.lastName || ""}`
+  );
+  setText(".profile-bio", data.bio || "Not set");
+  setText(
+    ".profile-location",
+    `${data.city || "Not set"}, ${data.country || "Not set"}`
+  );
 
   // Personal Info section
-  document.querySelector(".first-name").textContent =
-    data.firstName || "Not set";
-  document.querySelector(".last-name").textContent = data.lastName || "Not set";
-  document.querySelector(".email").textContent = user.email; // Always from auth
-  document.querySelector(".phone").textContent = data.phone || "Not set";
-  document.querySelector(".bio-detail").textContent = data.bio || "Not set";
+  setText(".first-name", data.firstName || "Not set");
+  setText(".last-name", data.lastName || "Not set");
+  setText(".email", user.email || ""); // Always from auth
+  setText(".phone", data.phone || "Not set");
+  setText(".bio-detail", data.bio || "Not set");
 
   // Address section
-  document.querySelector(".country").textContent = data.country || "Not set";
-  document.querySelector(".city").textContent = data.city || "Not set";
-  document.querySelector(".postal-code").textContent =
-    data.postalCode || "Not set";
-  document.querySelector(".company-id").textContent =
-    data.companyId || "Not set";
+  setText(".country", data.country || "Not set");
+  setText(".city", data.city || "Not set");
+  setText(".postal-code", data.postalCode || "Not set");
+  setText(".company-id", data.companyId || "Not set");
 });
 
 // Expose save handlers so Alpine (inline @click) can call them.
