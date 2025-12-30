@@ -63,6 +63,27 @@ onAuthStateChanged(auth, async (user) => {
   setText(".city", data.city || "Not set");
   setText(".postal-code", data.postalCode || "Not set");
   setText(".company-id", data.companyId || "Not set");
+
+  // Persist a small profile snapshot for other shared UI (header, nav)
+  try {
+    const profileSnapshot = {
+      firstName: data.firstName || "",
+      lastName: data.lastName || "",
+      email: user.email || "",
+      phone: data.phone || "",
+      bio: data.bio || "",
+      city: data.city || "",
+      country: data.country || "",
+      companyId: data.companyId || "",
+      updatedAt:
+        (data.updatedAt && data.updatedAt.toDate && data.updatedAt.toDate()) ||
+        null,
+    };
+    localStorage.setItem("ecorich.profile", JSON.stringify(profileSnapshot));
+  } catch (e) {
+    // ignore localStorage errors (e.g., private mode)
+    console.warn("Could not persist profile snapshot:", e);
+  }
 });
 
 // Expose save handlers so Alpine (inline @click) can call them.
